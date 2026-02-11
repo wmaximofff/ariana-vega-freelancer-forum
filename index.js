@@ -24,6 +24,7 @@ const PRICE_RANGE = { min: 20, max: 200 };
 const NUM_FREELANCERS = 100;
 
 
+// State
 const freelancers = Array.from({ length: NUM_FREELANCERS }, makeFreelancer);
 
 return {Freelancer}
@@ -35,11 +36,13 @@ function makeFreelancer() {
   const rate =
     PRICE_RANGE.min +
     Math.floor(Math.random() * (PRICE_RANGE.max - PRICE_RANGE.min));
+    
   return { name, occupation, rate };
 
 }
 
 return {number}
+
 function getAverageRate() {
   const total = freelancers.reduce(
     (total, freelancer) => total + freelancer.rate,
@@ -53,10 +56,9 @@ function getAverageRate() {
 return
 function sample(array) {
   return array[Math.floor(Math.random() * array.length)];
-
 }
 
-
+// Components
 function FreelancerRow({ name, occupation, rate }) {
   const $tr = document.createElement("tr");
   $tr.innerHTML = `
@@ -84,7 +86,7 @@ function AverageRate() {
 
 }
 
-
+//Render
 function render() {
   const $app = document.querySelector("#app");
 
